@@ -8,6 +8,8 @@
 
 body {
   font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: var(--clr-dark);
+  font-size: 1rem;
 }
 
 @font-face {
@@ -19,13 +21,13 @@ body {
 }
 
 .ctn {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
 
 }
 
 .image-side-bar {
-    width: 35%;
+    width: 40vw;
     background: url("../images/form-bg.jpg") center / cover no-repeat;
     position: relative;
 
@@ -33,7 +35,7 @@ body {
 
 .logo-bar {
     position: absolute;
-    top: 80px;
+    top: 60px;
     left: 0;
     width: 100%;
     display: flex;
@@ -74,7 +76,112 @@ body {
 
 
 .form-side-bar {
-    width: 65%;
+    width: 60vw;
     background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-ctn {
+    width: 100%;
+}
+
+.form-ctn > p {
+    margin-bottom: 1.2em;
+    width: min(100%, 58ch);
+    white-space: wrap;
+    /* word-break: break-word; */
+}
+
+.form-ctn > * {
+    margin-left: max(20px, 4vw);
+}
+
+.form-description {
+    font-size: 1.1rem;
+    color: var(--clr-dark);
+    font-weight: 900;
+    line-height: 1.4;
+    margin-top: 20px;
+}
+
+.form-section {
+    width: 100%;
+    font-size: inherit;
+    margin-top: 2.4em;
+    margin-left: 0;
+    margin-bottom: 1.2em;
+    background-color: #fefefe;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 1em max(20px, 4vw) max(16px, 3.5vw);
+    padding-right: 0;
+}
+
+.form-section h2 {
+    color: var(--clr-dark);
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 0.8em;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: max(8px, 1.4vw);
+    width: 90%;
+}
+.form > div {
+    flex-basis: auto;
+    margin-right: calc(16px + 1vw);
+    width: 250px;
+}
+
+.form label {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--clr-dark);
+}
+
+input {
+    display: block;
+    width: 100%;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
     
+}
+
+
+.form-ctn button {
+    padding: 0.9em 2.5em;
+    color: var(--clr-light);
+    background-color: rgba(5, 68, 5, 0.9);
+    transition: all 0.2s ease;
+}
+
+.form-ctn button:hover {
+    background-color: rgba(5, 68, 5, 0.8);
+}
+
+.call-for-action {
+    margin-bottom: 20px;
+}
+
+.call-for-action > button {
+    margin-bottom: 1.2em;
+}
+
+.call-for-action a {
+    color: rgba(5, 68, 5, 0.9);
+}
+
+.call-for-action a:hover {
+    color: rgba(5, 68, 5, 0.8);
 }
