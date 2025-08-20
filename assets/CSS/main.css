@@ -3,6 +3,10 @@
 :root {
     --clr-light: #f8f8f8;
     --clr-dark: #333;
+    --clr-green-light: #8BC34A;
+    --clr-theme-green: rgba(5, 68, 5, 0.9);
+    --clr-theme-green-hover: rgba(5, 68, 5, 0.8);
+    --clr-red: #b92326;
 
 }
 
@@ -134,7 +138,7 @@ body {
 .form > div {
     flex-basis: auto;
     margin-right: calc(16px + 1vw);
-    width: 250px;
+    width: 280px;
 }
 
 .form label {
@@ -144,15 +148,11 @@ body {
     color: var(--clr-dark);
 }
 
-input {
-    display: block;
-    width: 100%;
-}
 
 button {
     cursor: pointer;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 1rem;
     font-weight: 600;
     
@@ -162,12 +162,12 @@ button {
 .form-ctn button {
     padding: 0.9em 2.5em;
     color: var(--clr-light);
-    background-color: rgba(5, 68, 5, 0.9);
+    background-color: var(--clr-theme-green);
     transition: all 0.2s ease;
 }
 
 .form-ctn button:hover {
-    background-color: rgba(5, 68, 5, 0.8);
+    background-color: var(--clr-theme-green-hover);
 }
 
 .call-for-action {
@@ -179,9 +179,55 @@ button {
 }
 
 .call-for-action a {
-    color: rgba(5, 68, 5, 0.9);
+    color: var(--clr-theme-green);
 }
 
 .call-for-action a:hover {
-    color: rgba(5, 68, 5, 0.8);
+    color: var(--clr-theme-green-hover);
+}
+
+input {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--clr-dark);
+    border-radius: 8px;
+    padding: 0.3em 0.2em;
+}
+
+.form .tel::after {
+    content: "format: 123-456-7890";
+    display: none;
+    font-size: 0.8rem;
+
+}
+
+.form .tel:focus-within::after {
+    display: block;
+}
+
+:focus {
+    outline: none;
+}
+
+.form input:valid {
+    border-color: var(--clr-green-light);
+}
+
+.form input:invalid {
+    border-color: var(--clr-red);
+}
+
+.form input:placeholder-shown {
+    border-color: var(--clr-dark);
+}
+
+.form input:valid:focus {
+    border-color: var(--clr-green-light)
+}
+
+::placeholder {
+    color: var(--clr-dark);
+    opacity: 0.5;
+    font-size: 0.9rem;
+
 }
