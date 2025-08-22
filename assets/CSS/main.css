@@ -7,6 +7,7 @@
     --clr-theme-green: rgba(5, 68, 5, 0.9);
     --clr-theme-green-hover: rgba(5, 68, 5, 0.8);
     --clr-red: #b92326;
+    --clr-blue: #76bee7;
 
 }
 
@@ -129,6 +130,13 @@ body {
     margin-bottom: 0.8em;
 }
 
+.form-section h4 {
+    color: var(--clr-red);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 1em;
+}
+
 .form {
     display: flex;
     flex-wrap: wrap;
@@ -139,6 +147,12 @@ body {
     flex-basis: auto;
     margin-right: calc(16px + 1vw);
     width: 280px;
+}
+
+@media (max-width: 1276px) {
+    .form > div {
+        width: 100%;
+    }
 }
 
 .form label {
@@ -194,35 +208,36 @@ input {
     padding: 0.3em 0.2em;
 }
 
-.form .tel::after {
-    content: "format: 123-456-7890";
-    display: none;
-    font-size: 0.8rem;
-
-}
-
-.form .tel:focus-within::after {
-    display: block;
-}
-
 :focus {
     outline: none;
 }
 
+
 .form input:valid {
     border-color: var(--clr-green-light);
+    box-shadow: 2px 1px 3px var(--clr-green-light);
 }
+
 
 .form input:invalid {
     border-color: var(--clr-red);
+    box-shadow: 2px 1px 3px var(--clr-red);
 }
 
 .form input:placeholder-shown {
     border-color: var(--clr-dark);
+    box-shadow: none;
 }
 
+.form input:focus {
+    border-color: var(--clr-blue);
+    box-shadow: 2px 1px 3px var(--clr-blue);
+}
+
+
 .form input:valid:focus {
-    border-color: var(--clr-green-light)
+    border-color: var(--clr-green-light);
+    box-shadow: 2px 1px 3px var(--clr-green-light);
 }
 
 ::placeholder {
@@ -230,4 +245,44 @@ input {
     opacity: 0.5;
     font-size: 0.9rem;
 
+}
+
+.required > label::after{
+    content: " *";
+}
+
+.form .tel::after {
+    content: "format example: " attr(data-format);
+    display: none;
+    font-size: 0.8rem;
+    color: var(--clr-red, red);
+    
+}
+
+.form .tel:focus-within::after {
+    display: block;
+}
+
+
+.form .tel:has(input:invalid)::after {
+    display: block;
+}
+
+.form .tel:has(input:focus) > input{
+    border-color: var(--clr-blue);
+    box-shadow: 2px 1px 3px var(--clr-blue);
+}
+
+.form .tel:has(input:focus):focus-within::after {
+    color: var(--clr-blue);
+}
+
+
+.form .tel:has(input:valid):focus-within::after {
+    color: var(--clr-green-light, green);
+}
+
+
+.form .tel:has(input:placeholder-shown):focus-within::after {
+    color: var(--clr-blue);
 }
